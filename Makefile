@@ -8,4 +8,6 @@ delete:
 	docker rm -f chroma_Dashboard
 
 run: 
-	docker run -p 3000:3000 --hostname 0.0.0.0 --restart unless-stopped --name chroma_Dashboard chroma_dash
+	docker rm -f chroma_Dashboard
+	docker build -t chroma_dash .   
+	docker run -p 3880:3000 --hostname 0.0.0.0 --restart unless-stopped --name chroma_Dashboard -d chroma_dash
